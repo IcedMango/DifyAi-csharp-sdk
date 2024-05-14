@@ -81,7 +81,7 @@ public class TestClass
 
     public async Task<string> TestCompletion()
     {
-        var res = await _difyAiChatServices. CreateChatCompletionBlockModeAsync(new Dify_CreateChatCompletionParamDto()
+        var res = await _difyAiChatServices.CreateChatCompletionBlockModeAsync(new Dify_CreateChatCompletionParamDto()
         {
             Query = "Who are you?",
             User = "IcedMango",
@@ -90,7 +90,7 @@ public class TestClass
         
         if (res.Success == true)
         {
-            return res.Answer;
+            return res.Data.Answer;
         }
 
         return "Error";

@@ -85,7 +85,7 @@ public class TestClass
         
         if (res.Success == true)
         {
-            return res.Answer;
+            return res.Data.Answer;
         }
 
         return "Error";
