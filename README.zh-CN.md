@@ -87,7 +87,13 @@ public class TestClass
             User = "IcedMango",
             ConversationId = string.Empty
         });
-        return res.Answer;
+        
+        if (res.Success == true)
+        {
+            return res.Answer;
+        }
+
+        return "Error";
     }
 }
 ```
