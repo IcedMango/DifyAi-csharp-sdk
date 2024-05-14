@@ -1,0 +1,58 @@
+
+name: NuGet Package Publish
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      
+      # Publish
+      # https://github.com/marketplace/actions/github-releases-for-automated-package-publishing
+      - name: publish on version change
+        id: publish_nuget
+        uses: tedd/publish-nuget-neo@v1
+        with:
+          # NuGet API key to authenticate on NuGet server. 
+          # DO NOT PUT KEY DIRECTLY IN HERE.
+          # Use Secrets function in GitHub for example, i.e. dollarsign{{secrets.YOUR_NUGET_API_KEY}}.
+          NUGET_KEY: ${{secrets.NUGET_API_KEY}}
+          
+          # Full path to project file. (Example: src/MyNuGetProject/MyNuGetProject.csproj) (Default: Will scan all .csproj/.fsproj/.vbproj files and use first it finds that has GeneratePackageOnBuild set to true.)
+          PROJECT_FILE_PATH: DifyAi/DifyAi.csproj
+          
+          # URL to NuGet server. (Default: https://api.nuget.org)
+          #NUGET_SOURCE: https://api.nuget.org
+          
+          # Add symbols to NuGet package. (Default: false)
+          #INCLUDE_SYMBOLS: false
+          
+          # Current Git commit should be tagged upon successful upload to NuGet. Note: This will prevent publish if tag already exists. (Default: false)
+          TAG_COMMIT: true
+          
+          # Name of Git tag. * will be replaced by version number. (Default: v*)
+          TAG_FORMAT: v*
+          
+          # NuGet package name. This is used for checking NuGet server if package version already exists. (Default: name extracted from PROJECT_FILE_PATH)
+          PACKAGE_NAME: IcedMango.DifyAi
+          
+          # Path to file containing version number to extract using regex. (Default: $PROJECT_FILE_PATH)
+          # VERSION_FILE_PATH:
+          
+          # Regex pattern to extract version info in a capturing group. (Default: ^\\s*<Version>(.*)<\\/Version>\\s*$)
+          # VERSION_REGEX: ^\s*<Version>(.*)<\/Version>\s*$
+          
+          # Useful with external providers like Nerdbank.GitVersioning where you could for example set it to variable (dollar){{env.GitBuildVersionSimple}}. Ignores VERSION_FILE_PATH & VERSION_REGEX.
+          #VERSION_STATIC: ${{env.GitBuildVersionSimple}}
+          
+          # Rebuild project in release mode? You may turn this off if you have built project in previous step. (default: true)
+          #REBUILD_PROJECT: true
+          
+          # Additional debug output during processing (default: true)
+          #DEBUG: true`
