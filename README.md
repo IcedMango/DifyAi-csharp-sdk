@@ -15,7 +15,7 @@ UnitTest missing, will be added soon. If you have encountered any problem, pleas
 
 # QuickStart
 
-## Install(not publish yet)
+## Install
 
 ```
 Install-Package IcedMango.DifyAi 
