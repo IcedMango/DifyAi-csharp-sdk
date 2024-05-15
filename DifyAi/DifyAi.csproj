@@ -10,6 +10,12 @@
         <Authors>IcedMango</Authors>
         <RepositoryUrl>https://github.com/IcedMango/DifyAi-csharp-sdk</RepositoryUrl>
         <PackageLicenseUrl>https://github.com/IcedMango/DifyAi-csharp-sdk/blob/dev/LICENSE</PackageLicenseUrl>
+        <PackageTags>dify;sdk;dify-sdk</PackageTags>
+        <Description>
+            A simple C# SDK for Dify. Currently supports nearly all chatbot APIs,
+            knowledge base related APIs under development. Lacks unit tests, which will be added later.
+            If you encounter any problems, feel free to raise an Issue or PR.
+        </Description>
     </PropertyGroup>
 
     <ItemGroup>
