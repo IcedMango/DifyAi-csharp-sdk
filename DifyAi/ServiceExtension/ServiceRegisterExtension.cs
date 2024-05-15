@@ -22,8 +22,6 @@ public static class ServiceRegisterExtension
         using var scope = services.BuildServiceProvider().CreateScope();
 
         var configuration = scope.ServiceProvider.GetRequiredService<IConfiguration>();
-        services.Configure<DifyAiConfigDto>(configuration.GetSection("DifyAi"));
-
 
         var botApiKey = configuration.GetSection("DifyAi:BotApiKey").Value;
         var baseUrl = configuration.GetSection("DifyAi:BaseUrl").Value;

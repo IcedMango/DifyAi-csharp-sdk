@@ -3,7 +3,9 @@ using Newtonsoft.Json;
 namespace DifyAi.Dto.ResDto;
 
 public class Dify_GetConversationHistoryMessageResDto :
-    Dify_BaseRequestResDto<List<Dify_GetConversationHistoryMessageResDto_MessageItem>>;
+    Dify_BaseRequestResDto<List<Dify_GetConversationHistoryMessageResDto_MessageItem>>
+{
+}
 
 public class Dify_GetConversationHistoryMessageResDto_MessageItem
 {

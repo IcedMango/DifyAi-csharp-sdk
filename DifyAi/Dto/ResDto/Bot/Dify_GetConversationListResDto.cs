@@ -2,7 +2,9 @@ using Newtonsoft.Json;
 
 namespace DifyAi.Dto.ResDto;
 
-public class Dify_GetConversationListResDto : Dify_BaseRequestResDto<List<Dify_GetConversationListResDto_DataItem>>;
+public class Dify_GetConversationListResDto : Dify_BaseRequestResDto<List<Dify_GetConversationListResDto_DataItem>>
+{
+}
 
 public class Dify_GetConversationListResDto_DataItem
 {
@@ -16,7 +18,7 @@ public class Dify_GetConversationListResDto_DataItem
     /// <summary>
     /// User input parameters.
     /// </summary>
-    public Dictionary<string, string> Inputs { get; set; } = [];
+    public Dictionary<string, string> Inputs { get; set; } = new ();
 
     /// <summary>
     /// Introduction

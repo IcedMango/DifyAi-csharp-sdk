@@ -27,7 +27,7 @@ public class Dify_CreateChatCompletionParamDto : Dify_BaseRequestParamDto
     /// <summary>
     /// Allows the entry of various variable values defined by the App
     /// </summary>
-    public Dictionary<string, string> Inputs { get; set; } = [];
+    public Dictionary<string, string> Inputs { get; set; } = new Dictionary<string, string>();
 
     /// <summary>
     /// The mode of response return
