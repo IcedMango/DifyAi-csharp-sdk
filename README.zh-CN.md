@@ -97,10 +97,15 @@ public class TestClass
     }
 }
 ```
+
+## Api文档
+
+[点击查看](ApiDoc.zh-CN.md)
+
 ## 待办
-- [ ] 机器人API（部分完成）
+- [x] 机器人API（完成, 无流式返回/文字转语音接口）
+- [x] API文档
 - [ ] 单元测试
-- [ ] API文档
 - [ ] 消息完成流模式
 - [ ] Wiki相关API
 

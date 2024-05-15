@@ -95,11 +95,14 @@ public class TestClass
 
 ```
 
+## Api Document
+
+[Click Here](ApiDoc.md)
 
 ## Todo List
-- [ ] Robot Api(partially done)
+- [x] Robot Api(done, no chat completion stream return/text to speech)
+- [x] Api Document
 - [ ] UnitTest
-- [ ] Api Document
 - [ ] Message Completion Stream Mode
 - [ ] Wiki Related Api
 
