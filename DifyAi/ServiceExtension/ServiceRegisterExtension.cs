@@ -43,7 +43,7 @@ public static class ServiceRegisterExtension
         services.AddHttpClient("DifyAi.Bot",
             client =>
             {
-                client.DefaultRequestHeaders.Add("User-Agent", "IcedMango/DifyAi-Sdk(DifyAi.Bot)");
+                client.DefaultRequestHeaders.Add("User-Agent", "IcedMango/DifyAiSdk");
                 client.BaseAddress = new Uri(baseUrl);
                 client.DefaultRequestHeaders.Authorization = AuthenticationHeaderValue.Parse($"Bearer {botApiKey}");
             }).ConfigurePrimaryHttpMessageHandler(() => string.IsNullOrWhiteSpace(proxyConfig)
@@ -66,7 +66,7 @@ public static class ServiceRegisterExtension
             services.AddHttpClient("DifyAi.Dataset",
                 client =>
                 {
-                    client.DefaultRequestHeaders.Add("User-Agent", "IcedMango/DifyAi-Sdk(DifyAi.Dataset)");
+                    client.DefaultRequestHeaders.Add("User-Agent", "IcedMango/DifyAiSdk");
                     client.BaseAddress = new Uri(baseUrl);
 
                     client.DefaultRequestHeaders.Authorization =
