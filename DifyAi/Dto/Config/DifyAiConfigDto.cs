@@ -11,4 +11,9 @@ public class DifyAiConfigDto
     ///     DifyAi Api Key
     /// </summary>
     public string BotApiKey { get; set; }
+    
+    /// <summary>
+    ///     DifyAi Dataset Api Key
+    /// </summary>
+    public string DatasetApiKey { get; set; }
 }

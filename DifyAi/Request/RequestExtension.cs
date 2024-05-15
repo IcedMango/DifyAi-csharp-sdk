@@ -135,7 +135,11 @@ public class RequestExtension : IRequestExtension
         }
 
         var httpRequestMessage = new HttpRequestMessage(HttpMethod.Delete, url);
-        httpRequestMessage.Content = new StringContent(paramDto.ToJson(), Encoding.UTF8, "application/json");
+
+        if (paramDto != null)
+        {
+            httpRequestMessage.Content = new StringContent(paramDto.ToJson(), Encoding.UTF8, "application/json");
+        }
 
         var resp = await client.SendAsync(httpRequestMessage, cancellationToken);
 

@@ -24,6 +24,7 @@ public static class ServiceRegisterExtension
         var configuration = scope.ServiceProvider.GetRequiredService<IConfiguration>();
 
         var botApiKey = configuration.GetSection("DifyAi:BotApiKey").Value;
+        var datasetApiKey = configuration.GetSection("DifyAi:DatasetApiKey").Value;
         var baseUrl = configuration.GetSection("DifyAi:BaseUrl").Value;
         var proxyConfig = configuration.GetSection("DifyAi:ProxyConfig").Value;
 
@@ -57,10 +58,38 @@ public static class ServiceRegisterExtension
                     HttpClientHandler.DangerousAcceptAnyServerCertificateValidator
             });
 
+        //add dataset api client
+        if (!string.IsNullOrWhiteSpace(datasetApiKey))
+        {
+            if (datasetApiKey.StartsWith("Bearer ")) datasetApiKey = datasetApiKey.Replace("Bearer ", "");
+
+            services.AddHttpClient("DifyAi.Dataset",
+                client =>
+                {
+                    client.DefaultRequestHeaders.Add("User-Agent", "IcedMango/DifyAi-Sdk(DifyAi.Dataset)");
+                    client.BaseAddress = new Uri(baseUrl);
+
+                    client.DefaultRequestHeaders.Authorization =
+                        AuthenticationHeaderValue.Parse($"Bearer {datasetApiKey}");
+                }).ConfigurePrimaryHttpMessageHandler(() => string.IsNullOrWhiteSpace(proxyConfig)
+                ? new HttpClientHandler()
+                : new HttpClientHandler
+                {
+                    Proxy = new WebProxy(proxyConfig)
+                    {
+                        UseDefaultCredentials = false
+                    },
+                    ServerCertificateCustomValidationCallback =
+                        HttpClientHandler.DangerousAcceptAnyServerCertificateValidator
+                });
+        }
+
+
         //register service
+        services.AddTransient<IRequestExtension, RequestExtension>();
 
         services.AddTransient<IDifyAiChatServices, DifyAiChatServices>();
-        services.AddTransient<IRequestExtension, RequestExtension>();
+        services.AddTransient<IDifyAiDatasetServices, DifyAiDatasetServices>();
 
 
         return services;

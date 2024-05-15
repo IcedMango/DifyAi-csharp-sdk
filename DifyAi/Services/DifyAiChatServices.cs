@@ -63,7 +63,9 @@ public class DifyAiChatServices : IDifyAiChatServices
     /// </summary>
     /// <param name="paramDto"></param>
     /// <param name="overrideApiKey">pass this to override config api key</param>
+#pragma warning disable CS1998 // Async method lacks 'await' operators and will run synchronously
     public async Task<Dify_CreateChatCompletionResDto> CreateChatCompletionStreamModeAsync(
+#pragma warning restore CS1998 // Async method lacks 'await' operators and will run synchronously
         Dify_CreateChatCompletionParamDto paramDto,
         string overrideApiKey = "", CancellationToken cancellationToken = default)
     {
