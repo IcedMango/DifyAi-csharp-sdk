@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DifyAi", "DifyAi\DifyAi.csproj", "{3D3C397E-2CD2-4892-9CDB-7AAECC1D9D9D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IcedMango.DifyAi", "DifyAi\IcedMango.DifyAi.csproj", "{3D3C397E-2CD2-4892-9CDB-7AAECC1D9D9D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
