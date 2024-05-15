@@ -41,10 +41,10 @@ public static class ServiceRegisterExtension
 
         if (botApiKey.StartsWith("Bearer ")) botApiKey = botApiKey.Replace("Bearer ", "");
 
-        services.AddHttpClient("DifyAiHttpClient",
+        services.AddHttpClient("DifyAi.Bot",
             client =>
             {
-                client.DefaultRequestHeaders.Add("User-Agent", "IcedMango/DifyAi-Sdk");
+                client.DefaultRequestHeaders.Add("User-Agent", "IcedMango/DifyAi-Sdk(DifyAi.Bot)");
                 client.BaseAddress = new Uri(baseUrl);
                 client.DefaultRequestHeaders.Authorization = AuthenticationHeaderValue.Parse($"Bearer {botApiKey}");
             }).ConfigurePrimaryHttpMessageHandler(() => string.IsNullOrWhiteSpace(proxyConfig)

@@ -8,9 +8,11 @@ public interface IRequestExtension
     /// <param name="url"></param>
     /// <param name="overrideApiKey"></param>
     /// <param name="cancellationToken"></param>
+    /// <param name="httpClientName"></param>
     /// <typeparam name="T"></typeparam>
     /// <returns></returns>
-    Task<DifyApiResult<T>> HttpGet<T>(string url, string overrideApiKey, CancellationToken cancellationToken = default);
+    Task<DifyApiResult<T>> HttpGet<T>(string url, string overrideApiKey, CancellationToken cancellationToken = default,
+        string httpClientName = "DifyAi.Bot");
 
     /// <summary>
     ///     Http Delete
@@ -18,10 +20,12 @@ public interface IRequestExtension
     /// <param name="url"></param>
     /// <param name="overrideApiKey"></param>
     /// <param name="cancellationToken"></param>
+    /// <param name="httpClientName"></param>
     /// <typeparam name="T"></typeparam>
     /// <returns></returns>
     Task<DifyApiResult<T>> HttpDelete<T>(string url, Dify_BaseRequestParamDto paramDto, string overrideApiKey = "",
-        CancellationToken cancellationToken = default);
+        CancellationToken cancellationToken = default,
+        string httpClientName = "DifyAi.Bot");
 
     /// <summary>
     ///     Http post
@@ -30,12 +34,15 @@ public interface IRequestExtension
     /// <param name="paramDto"></param>
     /// <param name="overrideApiKey"></param>
     /// <param name="cancellationToken"></param>
+    /// <param name="httpClientName"></param>
     /// <typeparam name="T"></typeparam>
     /// <returns></returns>
     Task<DifyApiResult<T>> HttpPost<T>(string url, Dify_BaseRequestParamDto paramDto, string overrideApiKey = "",
-        CancellationToken cancellationToken = default);
+        CancellationToken cancellationToken = default,
+        string httpClientName = "DifyAi.Bot");
 
     Task<DifyApiResult<T>> PostFileAsync<T>(string url, Dify_BaseFileRequestParamDto paramDto,
         string overrideApiKey = "",
-        CancellationToken cancellationToken = default);
+        CancellationToken cancellationToken = default,
+        string httpClientName = "DifyAi.Bot");
 }

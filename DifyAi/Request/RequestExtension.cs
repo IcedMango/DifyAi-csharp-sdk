@@ -93,12 +93,14 @@ public class RequestExtension : IRequestExtension
     /// <param name="url"></param>
     /// <param name="overrideApiKey"></param>
     /// <param name="cancellationToken"></param>
+    /// <param name="httpClientName"></param>
     /// <typeparam name="T"></typeparam>
     /// <returns></returns>
     public async Task<DifyApiResult<T>> HttpGet<T>(string url, string overrideApiKey,
-        CancellationToken cancellationToken = default)
+        CancellationToken cancellationToken = default,
+        string httpClientName = "DifyAi.Bot")
     {
-        using var client = _httpClientFactory.CreateClient("DifyAiHttpClient");
+        using var client = _httpClientFactory.CreateClient(httpClientName);
 
         if (!string.IsNullOrEmpty(overrideApiKey))
         {
@@ -116,13 +118,15 @@ public class RequestExtension : IRequestExtension
     /// <param name="url"></param>
     /// <param name="overrideApiKey"></param>
     /// <param name="cancellationToken"></param>
+    /// <param name="httpClientName"></param>
     /// <typeparam name="T"></typeparam>
     /// <returns></returns>
     public async Task<DifyApiResult<T>> HttpDelete<T>(string url, Dify_BaseRequestParamDto paramDto,
         string overrideApiKey = "",
-        CancellationToken cancellationToken = default)
+        CancellationToken cancellationToken = default,
+        string httpClientName = "DifyAi.Bot")
     {
-        using var client = _httpClientFactory.CreateClient("DifyAiHttpClient");
+        using var client = _httpClientFactory.CreateClient(httpClientName);
 
         if (!string.IsNullOrEmpty(overrideApiKey))
         {
@@ -145,13 +149,15 @@ public class RequestExtension : IRequestExtension
     /// <param name="paramDto"></param>
     /// <param name="overrideApiKey"></param>
     /// <param name="cancellationToken"></param>
+    /// <param name="httpClientName"></param>
     /// <typeparam name="T"></typeparam>
     /// <returns></returns>
     public async Task<DifyApiResult<T>> HttpPost<T>(string url, Dify_BaseRequestParamDto paramDto,
         string overrideApiKey = "",
-        CancellationToken cancellationToken = default)
+        CancellationToken cancellationToken = default,
+        string httpClientName = "DifyAi.Bot")
     {
-        using var client = _httpClientFactory.CreateClient("DifyAiHttpClient");
+        using var client = _httpClientFactory.CreateClient(httpClientName);
 
         if (!string.IsNullOrEmpty(overrideApiKey))
         {
@@ -168,9 +174,10 @@ public class RequestExtension : IRequestExtension
 
     public async Task<DifyApiResult<T>> PostFileAsync<T>(string url, Dify_BaseFileRequestParamDto paramDto,
         string overrideApiKey = "",
-        CancellationToken cancellationToken = default)
+        CancellationToken cancellationToken = default,
+        string httpClientName = "DifyAi.Bot")
     {
-        using var client = _httpClientFactory.CreateClient("DifyAiHttpClient");
+        using var client = _httpClientFactory.CreateClient(httpClientName);
 
         if (!string.IsNullOrEmpty(overrideApiKey))
         {
