@@ -299,11 +299,11 @@ public class DifyAiDatasetServices : IDifyAiDatasetServices
     /// <param name="batch"></param>
     /// <param name="overrideApiKey"></param>
     /// <param name="cancellationToken"></param>
-    public async Task<DifyApiResult<Dify_BaseRequestResDto<List<Dify_GetDocumentEmbeddingResDto>>>>
+    public async Task<DifyApiResult<Dify_BaseRequestListResDto<List<Dify_GetDocumentEmbeddingResDto>>>>
         GetDocumentEmbeddingAsync(string datasetId, string batch, string overrideApiKey = "",
             CancellationToken cancellationToken = default)
     {
-        var res = await _requestExtension.HttpGet<Dify_BaseRequestResDto<List<Dify_GetDocumentEmbeddingResDto>>>(
+        var res = await _requestExtension.HttpGet<Dify_BaseRequestListResDto<List<Dify_GetDocumentEmbeddingResDto>>>(
             $"datasets/{datasetId}/documents/{batch}/indexing-status",
             overrideApiKey,
             cancellationToken,

@@ -8,13 +8,21 @@ public class Dify_GetDocumentEmbeddingResDto
 
     [JsonProperty("indexing_status")] public string IndexingStatus { get; set; }
 
-    [JsonProperty("processing_started_at")] public double? ProcessingStartedAt { get; set; }
+    [JsonProperty("processing_started_at")]
+    [JsonConverter(typeof(UnixTimestampConverter))]
+    public DateTime? ProcessingStartedAt { get; set; }
 
-    [JsonProperty("parsing_completed_at")] public double? ParsingCompletedAt { get; set; }
+    [JsonProperty("parsing_completed_at")]
+    [JsonConverter(typeof(UnixTimestampConverter))]
+    public DateTime? ParsingCompletedAt { get; set; }
 
-    [JsonProperty("cleaning_completed_at")] public double? CleaningCompletedAt { get; set; }
+    [JsonProperty("cleaning_completed_at")]
+    [JsonConverter(typeof(UnixTimestampConverter))]
+    public DateTime? CleaningCompletedAt { get; set; }
 
-    [JsonProperty("splitting_completed_at")] public double? SplittingCompletedAt { get; set; }
+    [JsonProperty("splitting_completed_at")]
+    [JsonConverter(typeof(UnixTimestampConverter))]
+    public DateTime? SplittingCompletedAt { get; set; }
 
     [JsonProperty("completed_at")]
     [JsonConverter(typeof(UnixTimestampConverter))]

@@ -7,6 +7,11 @@ public class Dify_BaseRequestResDto<T> : Dify_BaseRequestResDto where T : class
     public T Data { get; set; }
 }
 
+public class Dify_BaseRequestListResDto<T> 
+{
+    public T Data { get; set; }
+}
+
 public class Dify_BaseRequestResDto
 {
     public int? Limit { get; set; }

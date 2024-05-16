@@ -81,9 +81,9 @@ public interface IDifyAiDatasetServices
     /// <param name="batch"></param>
     /// <param name="overrideApiKey"></param>
     /// <param name="cancellationToken"></param>
-    Task<DifyApiResult<Dify_BaseRequestResDto<List<Dify_GetDocumentEmbeddingResDto>>>>
-        GetDocumentEmbeddingAsync(string datasetId, string batch, string overrideApiKey = "",
-            CancellationToken cancellationToken = default);
+    Task<DifyApiResult<Dify_BaseRequestListResDto<List<Dify_GetDocumentEmbeddingResDto>>>> GetDocumentEmbeddingAsync(
+        string datasetId, string batch, string overrideApiKey = "",
+        CancellationToken cancellationToken = default);
 
     /// <summary>
     ///     Get knowledge document list
