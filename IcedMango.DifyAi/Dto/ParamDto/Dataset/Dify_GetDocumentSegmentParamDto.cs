@@ -7,6 +7,6 @@ public class Dify_GetDocumentSegmentParamDto
     public string DocumentId { get; set; }
     
     public string Keyword { get; set; }
-    
-    public string Status { get; set; }
+
+    public string Status { get; set; } = "completed";
 }
