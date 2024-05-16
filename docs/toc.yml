@@ -1,0 +1,4 @@
+- name: README
+  href: ..\README.md
+- name: README - 中文
+  href: ..\README.zh-CN.md
