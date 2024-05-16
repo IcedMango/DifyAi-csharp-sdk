@@ -1,19 +1,20 @@
+using System.ComponentModel.DataAnnotations;
 using Newtonsoft.Json;
 
 namespace DifyAi.Dto.ParamDto;
 
-public class Dify_CreateDocumentByFileParamDto : Dify_BaseFileRequestParamDto
+public class Dify_CreateDocumentByFileParamDto
 {
     /// <summary>
     ///     Knowledge ID
     /// </summary>
-    [JsonIgnore]
     public string DatasetId { get; set; }
-
+    
     /// <summary>
-    ///     Document name
+    ///     File path (local)
     /// </summary>
-    public string Name { get; set; }
+    [Required]
+    public string FilePath { get; set; }
 
     /// <summary>
     ///     Source document ID (optional)
@@ -22,14 +23,13 @@ public class Dify_CreateDocumentByFileParamDto : Dify_BaseFileRequestParamDto
     ///     When original_document_id is passed in, the update operation is performed on behalf of the document. process_rule is a fillable item. If not filled in, the segmentation method of the source document will be used by defaul
     ///     When original_document_id is not passed in, the new operation is performed on behalf of the document, and process_rule is required
     /// </summary>
-    [JsonProperty("original_document_id")]
     public string OriginalDocumentId { get; set; }
 
    
     /// <summary>
     ///     segmentation mode(true : automatic, false : custom)
     /// </summary>
-    public bool? IsAutomaticProcess { get; set; }
+    public bool? IsAutomaticProcess { get; set; } 
 
     /// <summary>
     ///     Index mode: true: high_quality, false: economy

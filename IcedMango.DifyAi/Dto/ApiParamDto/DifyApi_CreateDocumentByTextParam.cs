@@ -2,7 +2,7 @@ using Newtonsoft.Json;
 
 namespace IcedMango.DifyAi.Dto.ApiParamDto;
 
-public class Dify_CreateDocumentByTextApiParamDto : Dify_BaseRequestParamDto
+public class DifyApi_CreateDocumentByTextParam : Dify_BaseRequestParamDto
 {
     /// <summary>
     ///     Document name

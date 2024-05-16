@@ -70,7 +70,8 @@ public interface IDifyAiDatasetServices
     /// <param name="documentId">Document ID</param>
     /// <param name="overrideApiKey"></param>
     /// <param name="cancellationToken"></param>
-    Task DeleteDocumentAsync(string datasetId, string documentId, string overrideApiKey = "",
+    Task<DifyApiResult<Dify_BaseRequestResDto>> DeleteDocumentAsync(string datasetId, string documentId,
+        string overrideApiKey = "",
         CancellationToken cancellationToken = default);
 
     /// <summary>

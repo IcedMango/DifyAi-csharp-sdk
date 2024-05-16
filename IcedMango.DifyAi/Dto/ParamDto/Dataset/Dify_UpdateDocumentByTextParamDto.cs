@@ -2,7 +2,7 @@ using Newtonsoft.Json;
 
 namespace DifyAi.Dto.ParamDto;
 
-public class Dify_UpdateDocumentByTextParamDto : Dify_BaseRequestParamDto
+public class Dify_UpdateDocumentByTextParamDto
 {
     public string DatasetId { get; set; }
 

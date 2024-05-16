@@ -7,32 +7,51 @@ public class Dify_UpdateDocumentByFileParamDto : Dify_BaseFileRequestParamDto
     /// <summary>
     ///     Knowledge ID
     /// </summary>
-    [JsonIgnore]
     public string DatasetId { get; set; }
 
     /// <summary>
     ///     Document ID
     /// </summary>
-    [JsonIgnore]
     public string DocumentId { get; set; }
-
+    
     /// <summary>
-    ///     Document name
+    ///     
     /// </summary>
-    public string Name { get; set; }
+    public string OriginalDocumentId { get; set; }
 
     /// <summary>
-    ///     Index mode
-    ///     high_quality : embedding using embedding model, built as vector database index
-    ///     economy : Build using inverted index of Keyword Table Index
+    ///     segmentation mode(true : automatic, false : custom)
+    /// </summary>
+    public bool? IsAutomaticProcess { get; set; }
+
+    /// <summary>
+    ///     Index mode: true: high_quality, false: economy
+    ///     (AutomaticProcess will ignore this field)
     /// </summary>
     /// <returns></returns>
-    [JsonProperty("indexing_technique")]
-    public string IndexingTechnique { get; set; }
+    public bool? EnableHighQualityIndex { get; set; } = true;
 
     /// <summary>
-    ///     Preprocessing rules
+    ///     Replace consecutive spaces, newlines, tabs
+    ///     (AutomaticProcess will ignore this field)
     /// </summary>
-    [JsonProperty("process_rule")]
-    public List<Dify_Dataset_ProcessRule> ProcessRule { get; set; }
+    public bool? RemoveExtraSpaces { get; set; }
+
+    /// <summary>
+    ///     Delete URL, email address
+    ///     (AutomaticProcess will ignore this field)
+    /// </summary>
+    public bool? RemoveUrlsEmails { get; set; }
+
+    /// <summary>
+    ///     Custom segment identifier, currently only allows one delimiter to be set. Default is \n
+    ///     (AutomaticProcess will ignore this field)
+    /// </summary>
+    public string Separator { get; set; } = "\n";
+
+    /// <summary>
+    ///     Maximum length (token) defaults to 1000
+    ///     (AutomaticProcess will ignore this field)
+    /// </summary>
+    public int? MaxTokens { get; set; } = 1000;
 }

@@ -72,45 +72,35 @@ public class DifyAiDatasetServices : IDifyAiDatasetServices
         string overrideApiKey = "",
         CancellationToken cancellationToken = default)
     {
-        var apiParam = paramDto.Adapt<Dify_CreateDocumentByTextApiParamDto>();
+        var apiParam = paramDto.Adapt<DifyApi_CreateDocumentByTextParam>();
 
         apiParam.IndexingTechnique = paramDto.EnableHighQualityIndex == true ? "high_quality" : "economy";
 
-        if (paramDto.IsAutomaticProcess == false)
+        apiParam.ProcessRule = new Dify_Dataset_ProcessRule()
         {
-            apiParam.ProcessRule = new Dify_Dataset_ProcessRule()
+            Mode = paramDto.IsAutomaticProcess == true ? "automatic" : "custom",
+            Rules = new Dify_Dataset_ProcessRule_RuleItem()
             {
-                Mode = paramDto.IsAutomaticProcess == true ? "automatic" : "custom",
-                Rules = new Dify_Dataset_ProcessRule_RuleItem()
+                PreProcessingRules = new List<Dify_Dataset_ProcessRule_PreProcessingRules>()
                 {
-                    PreProcessingRules = new List<Dify_Dataset_ProcessRule_PreProcessingRules>()
+                    new ()
                     {
-                        new ()
-                        {
-                            Id = "remove_extra_spaces",
-                            Enabled = paramDto.RemoveExtraSpaces
-                        },
-                        new ()
-                        {
-                            Id = "remove_urls_emails",
-                            Enabled = paramDto.RemoveUrlsEmails
-                        }
+                        Id = "remove_extra_spaces",
+                        Enabled = paramDto.RemoveExtraSpaces
                     },
-                    Segmentation = new Dify_Dataset_ProcessRule_Segmentation()
+                    new ()
                     {
-                        Separator = paramDto.Separator,
-                        MaxTokens = paramDto.MaxTokens
+                        Id = "remove_urls_emails",
+                        Enabled = paramDto.RemoveUrlsEmails
                     }
                 },
-            };
-        }
-        else
-        {
-            apiParam.ProcessRule = new Dify_Dataset_ProcessRule()
-            {
-                Mode = paramDto.IsAutomaticProcess == true ? "automatic" : "custom"
-            };
-        }
+                Segmentation = new Dify_Dataset_ProcessRule_Segmentation()
+                {
+                    Separator = paramDto.Separator,
+                    MaxTokens = paramDto.MaxTokens
+                }
+            }
+        };
 
 
         var res = await _requestExtension.HttpPost<Dify_CreateModifyDocumentResDto>(
@@ -135,43 +125,33 @@ public class DifyAiDatasetServices : IDifyAiDatasetServices
         string overrideApiKey = "",
         CancellationToken cancellationToken = default)
     {
-        var apiParam = paramDto.Adapt<Dify_UpdateDocumentByTextApiParamDto>();
-        
-        if (paramDto.IsAutomaticProcess == false)
+        var apiParam = paramDto.Adapt<DifyApi_UpdateDocumentByTextParam>();
+
+        apiParam.ProcessRule = new Dify_Dataset_ProcessRule()
         {
-            apiParam.ProcessRule = new Dify_Dataset_ProcessRule()
+            Mode = paramDto.IsAutomaticProcess == true ? "automatic" : "custom",
+            Rules = new Dify_Dataset_ProcessRule_RuleItem()
             {
-                Mode = paramDto.IsAutomaticProcess == true ? "automatic" : "custom",
-                Rules = new Dify_Dataset_ProcessRule_RuleItem()
+                PreProcessingRules = new List<Dify_Dataset_ProcessRule_PreProcessingRules>()
                 {
-                    PreProcessingRules = new List<Dify_Dataset_ProcessRule_PreProcessingRules>()
+                    new ()
                     {
-                        new ()
-                        {
-                            Id = "remove_extra_spaces",
-                            Enabled = paramDto.RemoveExtraSpaces
-                        },
-                        new ()
-                        {
-                            Id = "remove_urls_emails",
-                            Enabled = paramDto.RemoveUrlsEmails
-                        }
+                        Id = "remove_extra_spaces",
+                        Enabled = paramDto.RemoveExtraSpaces
                     },
-                    Segmentation = new Dify_Dataset_ProcessRule_Segmentation()
+                    new ()
                     {
-                        Separator = paramDto.Separator,
-                        MaxTokens = paramDto.MaxTokens
+                        Id = "remove_urls_emails",
+                        Enabled = paramDto.RemoveUrlsEmails
                     }
                 },
-            };
-        }
-        else
-        {
-            apiParam.ProcessRule = new Dify_Dataset_ProcessRule()
-            {
-                Mode = paramDto.IsAutomaticProcess == true ? "automatic" : "custom"
-            };
-        }
+                Segmentation = new Dify_Dataset_ProcessRule_Segmentation()
+                {
+                    Separator = paramDto.Separator,
+                    MaxTokens = paramDto.MaxTokens
+                }
+            }
+        };
 
         var res = await _requestExtension.HttpPost<Dify_CreateModifyDocumentResDto>(
             $"datasets/{paramDto.DatasetId}/documents/{paramDto.DocumentId}/update_by_text",
@@ -198,9 +178,40 @@ public class DifyAiDatasetServices : IDifyAiDatasetServices
         string overrideApiKey = "",
         CancellationToken cancellationToken = default)
     {
+        var apiParam = paramDto.Adapt<DifyApi_CreateDocumentByFileParam>();
+
+        apiParam.IndexingTechnique = paramDto.EnableHighQualityIndex == true ? "high_quality" : "economy";
+
+        apiParam.ProcessRule = new Dify_Dataset_ProcessRule()
+        {
+            Mode = paramDto.IsAutomaticProcess == true ? "automatic" : "custom",
+            Rules = new Dify_Dataset_ProcessRule_RuleItem()
+            {
+                PreProcessingRules = new List<Dify_Dataset_ProcessRule_PreProcessingRules>()
+                {
+                    new ()
+                    {
+                        Id = "remove_extra_spaces",
+                        Enabled = paramDto.RemoveExtraSpaces
+                    },
+                    new ()
+                    {
+                        Id = "remove_urls_emails",
+                        Enabled = paramDto.RemoveUrlsEmails
+                    }
+                },
+                Segmentation = new Dify_Dataset_ProcessRule_Segmentation()
+                {
+                    Separator = paramDto.Separator,
+                    MaxTokens = paramDto.MaxTokens
+                }
+            }
+        };
+
+
         var res = await _requestExtension.PostUploadDocumentAsync<Dify_CreateModifyDocumentResDto>(
             $"datasets/{paramDto.DatasetId}/document/create_by_file",
-            paramDto,
+            apiParam,
             overrideApiKey,
             cancellationToken,
             DifyApiClientName.Dataset);
@@ -219,6 +230,36 @@ public class DifyAiDatasetServices : IDifyAiDatasetServices
         string overrideApiKey = "",
         CancellationToken cancellationToken = default)
     {
+        var apiParam = paramDto.Adapt<DifyApi_UpdateDocumentByFileParam>();
+
+        apiParam.IndexingTechnique = paramDto.EnableHighQualityIndex == true ? "high_quality" : "economy";
+
+        apiParam.ProcessRule = new Dify_Dataset_ProcessRule()
+        {
+            Mode = paramDto.IsAutomaticProcess == true ? "automatic" : "custom",
+            Rules = new Dify_Dataset_ProcessRule_RuleItem()
+            {
+                PreProcessingRules = new List<Dify_Dataset_ProcessRule_PreProcessingRules>()
+                {
+                    new ()
+                    {
+                        Id = "remove_extra_spaces",
+                        Enabled = paramDto.RemoveExtraSpaces
+                    },
+                    new ()
+                    {
+                        Id = "remove_urls_emails",
+                        Enabled = paramDto.RemoveUrlsEmails
+                    }
+                },
+                Segmentation = new Dify_Dataset_ProcessRule_Segmentation()
+                {
+                    Separator = paramDto.Separator,
+                    MaxTokens = paramDto.MaxTokens
+                }
+            }
+        };
+
         var res = await _requestExtension.PostUploadFileAsync<Dify_CreateModifyDocumentResDto>(
             $"datasets/{paramDto.DatasetId}/documents/{paramDto.DocumentId}/update_by_file",
             paramDto,
@@ -238,15 +279,17 @@ public class DifyAiDatasetServices : IDifyAiDatasetServices
     /// <param name="documentId">Document ID</param>
     /// <param name="overrideApiKey"></param>
     /// <param name="cancellationToken"></param>
-    public async Task DeleteDocumentAsync(string datasetId, string documentId, string overrideApiKey = "",
+    public async Task<DifyApiResult<Dify_BaseRequestResDto>> DeleteDocumentAsync(string datasetId, string documentId,
+        string overrideApiKey = "",
         CancellationToken cancellationToken = default)
     {
-        await _requestExtension.HttpDelete<Dify_BaseRequestResDto>(
+        var res = await _requestExtension.HttpDelete<Dify_BaseRequestResDto>(
             $"datasets/{datasetId}/documents/{documentId}",
             null,
             overrideApiKey,
             cancellationToken,
             DifyApiClientName.Dataset);
+        return res;
     }
 
     /// <summary>

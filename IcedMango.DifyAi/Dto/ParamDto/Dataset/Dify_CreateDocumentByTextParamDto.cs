@@ -2,7 +2,7 @@ using Newtonsoft.Json;
 
 namespace DifyAi.Dto.ParamDto;
 
-public class Dify_CreateDocumentByTextParamDto : Dify_BaseRequestParamDto
+public class Dify_CreateDocumentByTextParamDto
 {
     /// <summary>
     ///     Knowledge ID
