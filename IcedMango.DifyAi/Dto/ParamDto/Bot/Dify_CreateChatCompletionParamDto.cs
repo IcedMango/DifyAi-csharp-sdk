@@ -32,7 +32,6 @@ public class Dify_CreateChatCompletionParamDto : Dify_BaseRequestParamDto
     /// <summary>
     /// The mode of response return
     /// </summary>
-    /// <see cref="DifyAiResponseModeEnum"/>
     [JsonProperty("response_mode")]
     public string ResponseMode { get; internal set; }
 

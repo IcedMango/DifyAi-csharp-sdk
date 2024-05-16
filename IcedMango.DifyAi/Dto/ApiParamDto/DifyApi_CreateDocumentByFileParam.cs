@@ -1,6 +1,6 @@
 using Newtonsoft.Json;
 
-namespace IcedMango.DifyAi.Dto.ApiParamDto;
+namespace DifyAi.Dto.ApiParamDto;
 
 public class DifyApi_CreateDocumentByFileParam : Dify_BaseFileRequestParamDto
 {
