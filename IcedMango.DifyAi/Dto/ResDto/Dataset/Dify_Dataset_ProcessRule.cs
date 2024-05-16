@@ -13,7 +13,7 @@ public class Dify_Dataset_ProcessRule
     /// <summary>
     ///     Custom rules (in automatic mode, this field is empty)
     /// </summary>
-    public List<Dify_Dataset_ProcessRule_RuleItem> Rules { get; set; }
+    public Dify_Dataset_ProcessRule_RuleItem Rules { get; set; }
 }
 
 public class Dify_Dataset_ProcessRule_RuleItem

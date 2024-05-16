@@ -14,7 +14,7 @@ public class UnixTimestampConverter : DateTimeConverterBase
     public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
     {
         return reader.Value == null
-            ? Epoch
+            ? null
             : TimeFromUnixTimestamp((long)reader.Value);
     }
 

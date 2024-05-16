@@ -221,7 +221,7 @@ public class DifyAiChatServices : IDifyAiChatServices
         }
 
 
-        var res = await _requestExtension.PostFileAsync<Dify_AudioToTextResDto>(
+        var res = await _requestExtension.PostUploadFileAsync<Dify_AudioToTextResDto>(
             "audio-to-text",
             paramDto,
             overrideApiKey,
@@ -279,7 +279,7 @@ public class DifyAiChatServices : IDifyAiChatServices
         string overrideApiKey = "",
         CancellationToken cancellationToken = default)
     {
-        var res = await _requestExtension.PostFileAsync<Dify_FileUploadResDto>(
+        var res = await _requestExtension.PostUploadFileAsync<Dify_FileUploadResDto>(
             "files",
             paramDto,
             overrideApiKey,

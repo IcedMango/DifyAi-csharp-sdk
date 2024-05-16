@@ -21,17 +21,37 @@ public class Dify_CreateDocumentByTextParamDto : Dify_BaseRequestParamDto
     public string Text { get; set; }
 
     /// <summary>
-    ///     Index mode
-    ///     high_quality : embedding using embedding model, built as vector database index
-    ///     economy : Build using inverted index of Keyword Table Index
+    ///     segmentation mode(true : automatic, false : custom)
     /// </summary>
-    /// <returns></returns>
-    [JsonProperty("indexing_technique")]
-    public string IndexingTechnique { get; set; }
+    public bool? IsAutomaticProcess { get; set; }
 
     /// <summary>
-    ///     Preprocessing rules
+    ///     Index mode: true: high_quality, false: economy
     /// </summary>
-    [JsonProperty("process_rule")]
-    public List<Dify_Dataset_ProcessRule> ProcessRule { get; set; }
+    /// <returns></returns>
+    public bool? EnableHighQualityIndex { get; set; } = true;
+
+    /// <summary>
+    ///     Replace consecutive spaces, newlines, tabs
+    ///     (AutomaticProcess will ignore this field)
+    /// </summary>
+    public bool? RemoveExtraSpaces { get; set; }
+
+    /// <summary>
+    ///     Delete URL, email address
+    ///     (AutomaticProcess will ignore this field)
+    /// </summary>
+    public bool? RemoveUrlsEmails { get; set; }
+
+    /// <summary>
+    ///     Custom segment identifier, currently only allows one delimiter to be set. Default is \n
+    ///     (AutomaticProcess will ignore this field)
+    /// </summary>
+    public string Separator { get; set; } = "\n";
+
+    /// <summary>
+    ///     Maximum length (token) defaults to 1000
+    ///     (AutomaticProcess will ignore this field)
+    /// </summary>
+    public int? MaxTokens { get; set; } = 1000;
 }

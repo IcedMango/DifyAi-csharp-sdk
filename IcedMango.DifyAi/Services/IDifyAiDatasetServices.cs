@@ -48,7 +48,7 @@ public interface IDifyAiDatasetServices
     /// <param name="overrideApiKey"></param>
     /// <param name="cancellationToken"></param>
     Task<DifyApiResult<Dify_CreateModifyDocumentResDto>> CreateDocumentByFileAsync(
-        Dify_CreateDocumentByTextParamDto paramDto,
+        Dify_CreateDocumentByFileParamDto paramDto,
         string overrideApiKey = "",
         CancellationToken cancellationToken = default);
 

@@ -1,4 +1,6 @@
 using System.Web;
+using IcedMango.DifyAi.Dto.ApiParamDto;
+using Mapster;
 
 namespace DifyAi.Services;
 
@@ -70,9 +72,50 @@ public class DifyAiDatasetServices : IDifyAiDatasetServices
         string overrideApiKey = "",
         CancellationToken cancellationToken = default)
     {
+        var apiParam = paramDto.Adapt<Dify_CreateDocumentByTextApiParamDto>();
+
+        apiParam.IndexingTechnique = paramDto.EnableHighQualityIndex == true ? "high_quality" : "economy";
+
+        if (paramDto.IsAutomaticProcess == false)
+        {
+            apiParam.ProcessRule = new Dify_Dataset_ProcessRule()
+            {
+                Mode = paramDto.IsAutomaticProcess == true ? "automatic" : "custom",
+                Rules = new Dify_Dataset_ProcessRule_RuleItem()
+                {
+                    PreProcessingRules = new List<Dify_Dataset_ProcessRule_PreProcessingRules>()
+                    {
+                        new ()
+                        {
+                            Id = "remove_extra_spaces",
+                            Enabled = paramDto.RemoveExtraSpaces
+                        },
+                        new ()
+                        {
+                            Id = "remove_urls_emails",
+                            Enabled = paramDto.RemoveUrlsEmails
+                        }
+                    },
+                    Segmentation = new Dify_Dataset_ProcessRule_Segmentation()
+                    {
+                        Separator = paramDto.Separator,
+                        MaxTokens = paramDto.MaxTokens
+                    }
+                },
+            };
+        }
+        else
+        {
+            apiParam.ProcessRule = new Dify_Dataset_ProcessRule()
+            {
+                Mode = paramDto.IsAutomaticProcess == true ? "automatic" : "custom"
+            };
+        }
+
+
         var res = await _requestExtension.HttpPost<Dify_CreateModifyDocumentResDto>(
             $"datasets/{paramDto.DatasetId}/document/create_by_text",
-            paramDto,
+            apiParam,
             overrideApiKey,
             cancellationToken,
             DifyApiClientName.Dataset);
@@ -92,9 +135,47 @@ public class DifyAiDatasetServices : IDifyAiDatasetServices
         string overrideApiKey = "",
         CancellationToken cancellationToken = default)
     {
+        var apiParam = paramDto.Adapt<Dify_UpdateDocumentByTextApiParamDto>();
+        
+        if (paramDto.IsAutomaticProcess == false)
+        {
+            apiParam.ProcessRule = new Dify_Dataset_ProcessRule()
+            {
+                Mode = paramDto.IsAutomaticProcess == true ? "automatic" : "custom",
+                Rules = new Dify_Dataset_ProcessRule_RuleItem()
+                {
+                    PreProcessingRules = new List<Dify_Dataset_ProcessRule_PreProcessingRules>()
+                    {
+                        new ()
+                        {
+                            Id = "remove_extra_spaces",
+                            Enabled = paramDto.RemoveExtraSpaces
+                        },
+                        new ()
+                        {
+                            Id = "remove_urls_emails",
+                            Enabled = paramDto.RemoveUrlsEmails
+                        }
+                    },
+                    Segmentation = new Dify_Dataset_ProcessRule_Segmentation()
+                    {
+                        Separator = paramDto.Separator,
+                        MaxTokens = paramDto.MaxTokens
+                    }
+                },
+            };
+        }
+        else
+        {
+            apiParam.ProcessRule = new Dify_Dataset_ProcessRule()
+            {
+                Mode = paramDto.IsAutomaticProcess == true ? "automatic" : "custom"
+            };
+        }
+
         var res = await _requestExtension.HttpPost<Dify_CreateModifyDocumentResDto>(
             $"datasets/{paramDto.DatasetId}/documents/{paramDto.DocumentId}/update_by_text",
-            paramDto,
+            apiParam,
             overrideApiKey,
             cancellationToken,
             DifyApiClientName.Dataset);
@@ -113,11 +194,11 @@ public class DifyAiDatasetServices : IDifyAiDatasetServices
     /// <param name="overrideApiKey"></param>
     /// <param name="cancellationToken"></param>
     public async Task<DifyApiResult<Dify_CreateModifyDocumentResDto>> CreateDocumentByFileAsync(
-        Dify_CreateDocumentByTextParamDto paramDto,
+        Dify_CreateDocumentByFileParamDto paramDto,
         string overrideApiKey = "",
         CancellationToken cancellationToken = default)
     {
-        var res = await _requestExtension.HttpPost<Dify_CreateModifyDocumentResDto>(
+        var res = await _requestExtension.PostUploadDocumentAsync<Dify_CreateModifyDocumentResDto>(
             $"datasets/{paramDto.DatasetId}/document/create_by_file",
             paramDto,
             overrideApiKey,
@@ -138,7 +219,7 @@ public class DifyAiDatasetServices : IDifyAiDatasetServices
         string overrideApiKey = "",
         CancellationToken cancellationToken = default)
     {
-        var res = await _requestExtension.PostFileAsync<Dify_CreateModifyDocumentResDto>(
+        var res = await _requestExtension.PostUploadFileAsync<Dify_CreateModifyDocumentResDto>(
             $"datasets/{paramDto.DatasetId}/documents/{paramDto.DocumentId}/update_by_file",
             paramDto,
             overrideApiKey,

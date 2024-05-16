@@ -19,8 +19,31 @@ public class Dify_UpdateDocumentByTextParamDto : Dify_BaseRequestParamDto
     public string Text { get; set; }
 
     /// <summary>
-    ///     Preprocessing rules
+    ///     segmentation mode(true : automatic, false : custom)
     /// </summary>
-    [JsonProperty("process_rule")]
-    public List<Dify_Dataset_ProcessRule> ProcessRule { get; set; }
+    public bool? IsAutomaticProcess { get; set; }
+
+    /// <summary>
+    ///     Replace consecutive spaces, newlines, tabs
+    ///     (AutomaticProcess will ignore this field)
+    /// </summary>
+    public bool? RemoveExtraSpaces { get; set; }
+
+    /// <summary>
+    ///     Delete URL, email address
+    ///     (AutomaticProcess will ignore this field)
+    /// </summary>
+    public bool? RemoveUrlsEmails { get; set; }
+
+    /// <summary>
+    ///     Custom segment identifier, currently only allows one delimiter to be set. Default is \n
+    ///     (AutomaticProcess will ignore this field)
+    /// </summary>
+    public string Separator { get; set; } = "\n";
+
+    /// <summary>
+    ///     Maximum length (token) defaults to 1000
+    ///     (AutomaticProcess will ignore this field)
+    /// </summary>
+    public int? MaxTokens { get; set; } = 1000;
 }

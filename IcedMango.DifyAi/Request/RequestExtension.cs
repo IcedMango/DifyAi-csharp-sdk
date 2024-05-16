@@ -176,7 +176,7 @@ public class RequestExtension : IRequestExtension
     }
 
 
-    public async Task<DifyApiResult<T>> PostFileAsync<T>(string url, Dify_BaseFileRequestParamDto paramDto,
+    public async Task<DifyApiResult<T>> PostUploadFileAsync<T>(string url, Dify_BaseFileRequestParamDto paramDto,
         string overrideApiKey = "",
         CancellationToken cancellationToken = default,
         string httpClientName = "DifyAi.Bot")
@@ -198,6 +198,41 @@ public class RequestExtension : IRequestExtension
 
             formData.Add(new StringContent(value.ToString()), property.Name);
         }
+
+        // add file last
+        if (!File.Exists(paramDto.FilePath))
+        {
+            throw new FileNotFoundException("File not found", paramDto.FilePath);
+        }
+
+        var fileType = MimeMapping.MimeUtility.GetMimeMapping(paramDto.FilePath);
+        var fileContent = new ByteArrayContent(await File.ReadAllBytesAsync(paramDto.FilePath, cancellationToken));
+        fileContent.Headers.ContentType = new MediaTypeHeaderValue(fileType);
+        formData.Add(fileContent, "file", Path.GetFileName(paramDto.FilePath));
+
+
+        var resp = await client.PostAsync(url, formData, cancellationToken);
+        return await HandelResponse<T>(resp, cancellationToken);
+    }
+
+    public async Task<DifyApiResult<T>> PostUploadDocumentAsync<T>(string url, Dify_BaseFileRequestParamDto paramDto,
+        string overrideApiKey = "",
+        CancellationToken cancellationToken = default,
+        string httpClientName = "DifyAi.Bot")
+    {
+        using var client = _httpClientFactory.CreateClient(httpClientName);
+
+        if (!string.IsNullOrEmpty(overrideApiKey))
+        {
+            client.DefaultRequestHeaders.Authorization =
+                AuthenticationHeaderValue.Parse($"Bearer {FormatApiKey(overrideApiKey)}");
+        }
+
+        using var formData = new MultipartFormDataContent();
+
+
+        formData.Add(new StringContent(paramDto.ToJson()), "data");
+
 
         // add file last
         if (!File.Exists(paramDto.FilePath))

@@ -11,6 +11,17 @@ public class Dify_GetDatasetListResDto
     public string Description { get; set; }
 
     public string Permission { get; set; }
+    
+    public string Provider { get; set; }
+    
+    [JsonProperty("embedding_model")]
+    public string EmbeddingModel { get; set; }
+    
+    [JsonProperty("embedding_model_provider")]
+    public string EmbeddingModelProvider { get; set; }
+    
+    [JsonProperty("embedding_model_available")]
+    public string EmbeddingModelAvailable { get; set; }
 
     [JsonProperty("data_source_type")]
     public string DataSourceType { get; set; }
@@ -31,11 +42,13 @@ public class Dify_GetDatasetListResDto
     public string CreatedBy { get; set; }
 
     [JsonProperty("created_at")]
-    public string CreatedAt { get; set; }
+    [JsonConverter(typeof(UnixTimestampConverter))]
+    public DateTime? CreatedAt { get; set; }
 
     [JsonProperty("updated_by")]
     public string UpdatedBy { get; set; }
 
     [JsonProperty("updated_at")]
-    public string UpdatedAt { get; set; }
+    [JsonConverter(typeof(UnixTimestampConverter))]
+    public DateTime? UpdatedAt { get; set; }
 }

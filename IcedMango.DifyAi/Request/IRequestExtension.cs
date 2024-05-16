@@ -41,7 +41,12 @@ public interface IRequestExtension
         CancellationToken cancellationToken = default,
         string httpClientName = "DifyAi.Bot");
 
-    Task<DifyApiResult<T>> PostFileAsync<T>(string url, Dify_BaseFileRequestParamDto paramDto,
+    Task<DifyApiResult<T>> PostUploadFileAsync<T>(string url, Dify_BaseFileRequestParamDto paramDto,
+        string overrideApiKey = "",
+        CancellationToken cancellationToken = default,
+        string httpClientName = "DifyAi.Bot");
+
+    Task<DifyApiResult<T>> PostUploadDocumentAsync<T>(string url, Dify_BaseFileRequestParamDto paramDto,
         string overrideApiKey = "",
         CancellationToken cancellationToken = default,
         string httpClientName = "DifyAi.Bot");
