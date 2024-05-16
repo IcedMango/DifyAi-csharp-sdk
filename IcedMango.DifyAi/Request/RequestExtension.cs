@@ -50,11 +50,11 @@ public class RequestExtension : IRequestExtension
                 var error = JsonConvert.DeserializeObject<Dify_BaseErrorResDto>(respContent);
 
                 _logger.LogError(
-                    $"DifyApi Request Failed! StatusCode: {error?.Status} Message: {error?.Message} \n response: {respContent}");
+                    $"DifyApi Request Failed! StatusCode: {error?.Code} Message: {error?.Message} \n response: {respContent}");
 
                 return new DifyApiResult<T>()
                 {
-                    Code = error?.Status,
+                    Code = error?.Code,
                     Success = false,
                     Message = error?.Message
                 };
