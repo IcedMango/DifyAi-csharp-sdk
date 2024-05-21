@@ -280,7 +280,7 @@ public class DifyAiChatServices : IDifyAiChatServices
         CancellationToken cancellationToken = default)
     {
         var res = await _requestExtension.PostUploadFileAsync<Dify_FileUploadResDto>(
-            "files",
+            "files/upload",
             paramDto,
             overrideApiKey,
             cancellationToken);
