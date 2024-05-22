@@ -5,13 +5,13 @@
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <PackageId>IcedMango.DifyAi</PackageId>
         <PackageReadmeFile>README.md</PackageReadmeFile>
-        <Version>1.1.2</Version>
+        <Version>1.1.3</Version>
         <Authors>IcedMango</Authors>
         <RepositoryUrl>https://github.com/IcedMango/DifyAi-csharp-sdk</RepositoryUrl>
         <PackageProjectUrl>https://github.com/IcedMango/DifyAi-csharp-sdk</PackageProjectUrl>
         <PackageLicenseUrl>https://github.com/IcedMango/DifyAi-csharp-sdk/blob/dev/LICENSE</PackageLicenseUrl>
         <PackageTags>dify;sdk;dify-sdk</PackageTags>
-        <Description>A simple C# SDK for Dify. If you encounter any problems, feel free to raise an Issue or PR.</Description>
+        <Description>A simple C# SDK for Dify. Support chat api & Knowledge api.</Description>
         <RepositoryType>Github</RepositoryType>
         <LangVersion>10</LangVersion>
         <TargetFrameworks>net8.0;net6.0;net7.0</TargetFrameworks>
