@@ -16,5 +16,7 @@ public class Dify_FileUploadResDto
 
     [JsonProperty("created_by")] public string CreatedBy { get; set; }
 
-    [JsonProperty("created_at")] [JsonConverter(typeof(UnixTimestampConverter))] public long CreatedAt { get; set; }
+    [JsonProperty("created_at")]
+    [JsonConverter(typeof(UnixTimestampConverter))]
+    public DateTime? CreatedAt { get; set; }
 }

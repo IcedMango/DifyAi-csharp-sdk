@@ -55,12 +55,12 @@ public class ChatCompletionFileItemParamDto
     /// <summary>
     ///     Supported type: image (currently only supports image type)
     /// </summary>
-    public string Type { get; internal set; } = "image";
+    public string Type { get; set; } = "image";
 
     /// <summary>
     ///     Transfer method, remote_url for image URL / local_file for file upload
     /// </summary>
-    [JsonProperty("transfer_method ")]
+    [JsonProperty("transfer_method")]
     public string TransferMethod { get; set; }
 
     /// <summary>
