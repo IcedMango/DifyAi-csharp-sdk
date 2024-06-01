@@ -13,8 +13,9 @@
 
 # Introduction
 
-![简体中文](https://img.shields.io/badge/简体中文-green)
-![English](https://img.shields.io/badge/English-red)
+[![简体中文](https://img.shields.io/badge/简体中文-green)](https://github.com/IcedMango/DifyAi-csharp-sdk/blob/main/README.zh-CN.md)
+[![English](https://img.shields.io/badge/English-red)](https://github.com/IcedMango/DifyAi-csharp-sdk/blob/main/README.md)
+
 
 A Dify C# SDK for interacting with Dify's APIs.
 

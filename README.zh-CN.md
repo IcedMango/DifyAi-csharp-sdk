@@ -13,8 +13,8 @@
 
 # 介绍
 
-![简体中文](https://img.shields.io/badge/简体中文-green)
-![English](https://img.shields.io/badge/English-red)
+[![简体中文](https://img.shields.io/badge/简体中文-green)](https://github.com/IcedMango/DifyAi-csharp-sdk/blob/main/README.zh-CN.md)
+[![English](https://img.shields.io/badge/English-red)](https://github.com/IcedMango/DifyAi-csharp-sdk/blob/main/README.md)
 
 一个Dify的C# SDK，用于与Dify的API进行交互。 支持聊天/知识库API。
 
