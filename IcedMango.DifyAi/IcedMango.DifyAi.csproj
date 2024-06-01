@@ -5,7 +5,7 @@
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <PackageId>IcedMango.DifyAi</PackageId>
         <PackageReadmeFile>README.md</PackageReadmeFile>
-        <Version>1.1.3</Version>
+        <Version>1.1.4</Version>
         <Authors>IcedMango</Authors>
         <RepositoryUrl>https://github.com/IcedMango/DifyAi-csharp-sdk</RepositoryUrl>
         <PackageProjectUrl>https://github.com/IcedMango/DifyAi-csharp-sdk</PackageProjectUrl>
