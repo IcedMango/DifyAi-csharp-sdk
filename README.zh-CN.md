@@ -1,24 +1,20 @@
-<h1 align="center">Dify C# SDK</h1>
-<p align="center">
-    <a href="https://www.nuget.org/packages/IcedMango.DifyAi" target="_blank"><img alt="Nuget Version" src="https://img.shields.io/badge/OpenSource-Github-blue"></a>
-    <a href="https://www.nuget.org/packages/IcedMango.DifyAi" target="_blank"><img alt="Nuget Version" src="https://img.shields.io/nuget/v/IcedMango.DifyAi"></a>
-    <a href="https://www.nuget.org/packages/IcedMango.DifyAi" target="_blank"><img alt="Nuget Download" src="https://img.shields.io/nuget/dt/IcedMango.DifyAi"/></a>
-    <a href="https://github.com/IcedMango/DifyAi-csharp-sdk/blob/main/LICENSE" target="_blank"><img alt="GitHub License" src="https://img.shields.io/github/license/IcedMango/DifyAi-csharp-sdk"/></a>
-    <a href="https://github.com/IcedMango/DifyAi-csharp-sdk/actions" target="_blank"><img alt="Action Status" src="https://img.shields.io/github/actions/workflow/status/IcedMango/DifyAi-csharp-sdk/publishNuGet.yml"/></a>
-    <a href="https://img.shields.io/github/license/IcedMango/DifyAi-csharp-sdk" target="_blank"><img alt="Commit Status" src="https://img.shields.io/github/commit-activity/m/IcedMango/DifyAi-csharp-sdk?labelColor=%20%2332b583&color=%20%2312b76a"/></a>
-</p>
-<p align="center">
-    <img alt="Language" src="https://img.shields.io/github/languages/top/IcedMango/DifyAi-csharp-sdk"/>
-    <img alt=".NET-6.0" src="https://img.shields.io/badge/.NET-6.0-blue"/>
-    <img alt=".NET-7.0" src="https://img.shields.io/badge/.NET-7.0-blue"/>
-    <img alt=".NET-8.0" src="https://img.shields.io/badge/.NET-8.0-blue"/>
-</p>
-<p align="center">
-    <a href="https://github.com/IcedMango/DifyAi-csharp-sdk/blob/main/README.zh-CN.md" target="_blank"><img alt="简体中文" src="https://img.shields.io/badge/简体中文-green"></a>
-    <a href="https://github.com/IcedMango/DifyAi-csharp-sdk/blob/main/README.md" target="_blank"><img alt="English" src="https://img.shields.io/badge/English-red"></a>
-</p>
+# Dify C# SDK
+
+![Nuget Version](https://img.shields.io/badge/OpenSource-Github-blue)
+![Nuget Version](https://img.shields.io/nuget/v/IcedMango.DifyAi)
+![Nuget Download](https://img.shields.io/nuget/dt/IcedMango.DifyAi)
+![GitHub License](https://img.shields.io/github/license/IcedMango/DifyAi-csharp-sdk)
+![Action Status](https://img.shields.io/github/actions/workflow/status/IcedMango/DifyAi-csharp-sdk/publishNuGet.yml)
+![Commit Status](https://img.shields.io/github/commit-activity/m/IcedMango/DifyAi-csharp-sdk?labelColor=%20%2332b583&color=%20%2312b76a)
+![Language](https://img.shields.io/github/languages/top/IcedMango/DifyAi-csharp-sdk)
+![.NET-6.0](https://img.shields.io/badge/.NET-6.0-blue)
+![.NET-7.0](https://img.shields.io/badge/.NET-7.0-blue)
+![.NET-8.0](https://img.shields.io/badge/.NET-8.0-blue)
 
 # 介绍
+
+![简体中文](https://img.shields.io/badge/简体中文-green)
+![English](https://img.shields.io/badge/English-red)
 
 一个Dify的C# SDK，用于与Dify的API进行交互。 支持聊天/知识库API。
 
