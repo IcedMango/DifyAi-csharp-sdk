@@ -1,16 +1,47 @@
-# 描述
+<p align="center" style="font-size:24px;">
+    Dify C# SDK
+</p>
 
-[English](./README.md) | 中文
+<p align="center">
+    <a href="https://www.nuget.org/packages/IcedMango.DifyAi" target="_blank">
+        <img alt="Nuget Version" src="https://img.shields.io/badge/OpenSource-Github-blue">
+    </a>
+    <a href="https://www.nuget.org/packages/IcedMango.DifyAi" target="_blank">
+        <img alt="Nuget Version" src="https://img.shields.io/nuget/v/IcedMango.DifyAi">
+    </a>
+    <a href="https://www.nuget.org/packages/IcedMango.DifyAi" target="_blank">
+        <img alt="Nuget Download" src="https://img.shields.io/nuget/dt/IcedMango.DifyAi"/>
+    </a>
+    <a href="https://github.com/IcedMango/DifyAi-csharp-sdk/blob/main/LICENSE" target="_blank">
+        <img alt="GitHub License" src="https://img.shields.io/github/license/IcedMango/DifyAi-csharp-sdk"/>
+    </a>
+    <a href="https://github.com/IcedMango/DifyAi-csharp-sdk/actions" target="_blank">
+        <img alt="Action Status" src="https://img.shields.io/github/actions/workflow/status/IcedMango/DifyAi-csharp-sdk/publishNuGet.yml"/>
+    </a>
+    <a href="https://img.shields.io/github/license/IcedMango/DifyAi-csharp-sdk" target="_blank">
+        <img alt="Commit Status" src="https://img.shields.io/github/commit-activity/m/IcedMango/DifyAi-csharp-sdk?labelColor=%20%2332b583&color=%20%2312b76a"/>
+    </a>
+</p>
+<p align="center">
+    <img alt="Language" src="https://img.shields.io/github/languages/top/IcedMango/DifyAi-csharp-sdk"/>
+    <img alt=".NET-6.0" src="https://img.shields.io/badge/.NET-6.0-blue"/>
+    <img alt=".NET-7.0" src="https://img.shields.io/badge/.NET-7.0-blue"/>
+    <img alt=".NET-8.0" src="https://img.shields.io/badge/.NET-8.0-blue"/>
+</p>
+<p align="center">
+    <a href="https://github.com/IcedMango/DifyAi-csharp-sdk/blob/main/README.zh-CN.md" target="_blank">
+        <img alt="简体中文" src="https://img.shields.io/badge/简体中文-green">
+    </a>
+    <a href="https://github.com/IcedMango/DifyAi-csharp-sdk/blob/main/README.md" target="_blank">
+        <img alt="English" src="https://img.shields.io/badge/English-red">
+    </a>
+</p>
 
-一个简单的 [Dify](https://dify.ai/) C# SDK。
+# 介绍
 
-目前支持部分聊天机器人API，知识库相关API正在开发中
+一个Dify的C# SDK，用于与Dify的API进行交互。 支持聊天/知识库API。
 
-缺少单元测试，将在后续添加。如果你遇到任何问题，请随时提出Issue或PR。
-
-# 重要通知
-
-**该项目处于早期开发阶段，API可能随时更改。可能会遇到错误、缺失功能或文档不完整的问题。**
+如果你遇到任何问题，请随时提出Issue或PR。
 
 # 快速开始
 
@@ -27,13 +58,11 @@ Install-Package IcedMango.DifyAi
 ### Startup.cs
 
 ```csharp
-
 //Startup.cs
 
 using DifyAi.ServiceExtension;
 
 public void ConfigureServices(IServiceCollection services)
-
 {
 
     ...其他代码
@@ -44,28 +73,32 @@ public void ConfigureServices(IServiceCollection services)
 
 ```
 
-### appsetting.json
+### 配置文件 (appsettings.json)
+
+**必须填写下面的配置**
 
 这里提供了一段示例配置，你需要根据实际情况进行修改。
 
 注意：
 
-- BaseUrl：Dify API实例的Url地址。**必须以`/`结尾**。
-
-- BotApiKey：可以包含'Bearer app-your-bot-key'或者只使用 'app-your-bot-key'。
-
+- BaseUrl：【必填】Dify API实例的Url地址。**必须以`/`结尾**。
+- BotApiKey：【必填】你的机器人api Key。
+- DatasetApiKey：你的知识库api Key。
 - Proxy：代理设置，支持http、https、socks5。如果不需要，请留空。
 
 ```json
 {
-    "DifyAi": {
-        "BaseUrl": "https://example.com/v1/",
-        "BotApiKey": "app-your-bot-key",
-        "Proxy": "socks5://127.0.0.1:8889"
-    }
+  "DifyAi": {
+    "BaseUrl": "https://example.com/v1/",
+    "BotApiKey": "app-your-bot-key",
+    "DatasetApiKey": "dataset-your-dataset-key",
+    "Proxy": "socks5://127.0.0.1:8889"
+  }
 }
 ```
+
 ## 用法
+
 ```csharp
 using DifyAi.Dto.ParamDto;
 using DifyAi.Services;
@@ -73,12 +106,18 @@ using DifyAi.Services;
 namespace TestDifyAi;
 public class TestClass
 {
+    // 聊天机器人开放api
     private readonly IDifyAiChatServices _difyAiChatServices;
-    public TestClass(IDifyAiChatServices difyAiChatServices)
+    
+    // 知识库开放api
+    private readonly IDifyAiDatasetServices _difyAiDatasetServices;
+    public TestClass(IDifyAiChatServices difyAiChatServices, IDifyAiDatasetServices difyAiDatasetServices)
     {
-        _difyAiChat Services = difyAiChatServices;
+        _difyAiChatServices = difyAiChatServices;
+        _difyAiDatasetServices = difyAiDatasetServices;
     }
 
+    // 聊天机器人
     public async Task<string> TestCompletion()
     {
         var res = await _difyAiChatServices.CreateChatCompletionBlockModeAsync(new Dify_CreateChatCompletionParamDto()
@@ -95,19 +134,34 @@ public class TestClass
 
         return "Error";
     }
+    
+    // 添加知识库文档
+    public async Task<bool> AddDatasetDocAsync()
+    {
+        var difyAiDto = new Dify_CreateDocumentByTextParamDto() 
+        {
+            DatasetId = "your-dataset-id",
+            Text = "who are you? Why are you here? I am a bot.",
+            Name = "About me",
+            IsAutomaticProcess = true,
+            EnableHighQualityIndex = true
+        };
+        
+        var res = await _datasetServices.CreateDocumentByTextAsync(difyAiDto);
+        if (res.Success == true)
+        {
+            var docInfo = res.Data.Document;
+            return true;
+        }
+        return false;
+    }
 }
 ```
 
-## Api文档
-
-[点击查看](ApiDoc.zh-CN.md)
 
 ## 待办
-- [x] 机器人API（完成, 无流式返回/文字转语音接口）
-- [x] API文档
 - [ ] 单元测试
 - [ ] 消息完成流模式
-- [ ] Wiki相关API
 
 # 开源协议
 
