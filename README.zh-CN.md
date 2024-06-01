@@ -1,4 +1,4 @@
-<h1 style="text-align: center;">Dify C# SDK</h1>
+<h1 align="center">Dify C# SDK</h1>
 <p align="center">
     <a href="https://www.nuget.org/packages/IcedMango.DifyAi" target="_blank"><img alt="Nuget Version" src="https://img.shields.io/badge/OpenSource-Github-blue"></a>
     <a href="https://www.nuget.org/packages/IcedMango.DifyAi" target="_blank"><img alt="Nuget Version" src="https://img.shields.io/nuget/v/IcedMango.DifyAi"></a>
