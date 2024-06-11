@@ -1,15 +1,15 @@
 # Dify C# SDK
 
-![Nuget Version](https://img.shields.io/badge/OpenSource-Github-blue)
-![Nuget Version](https://img.shields.io/nuget/v/IcedMango.DifyAi)
-![Nuget Download](https://img.shields.io/nuget/dt/IcedMango.DifyAi)
-![GitHub License](https://img.shields.io/github/license/IcedMango/DifyAi-csharp-sdk)
-![Action Status](https://img.shields.io/github/actions/workflow/status/IcedMango/DifyAi-csharp-sdk/publishNuGet.yml)
-![Commit Status](https://img.shields.io/github/commit-activity/m/IcedMango/DifyAi-csharp-sdk?labelColor=%20%2332b583&color=%20%2312b76a)
-![Language](https://img.shields.io/github/languages/top/IcedMango/DifyAi-csharp-sdk)
-![.NET-6.0](https://img.shields.io/badge/.NET-6.0-blue)
-![.NET-7.0](https://img.shields.io/badge/.NET-7.0-blue)
-![.NET-8.0](https://img.shields.io/badge/.NET-8.0-blue)
+[![Github](https://img.shields.io/badge/OpenSource-Github-blue)](https://github.com/IcedMango/DifyAi-csharp-sdk)
+[![Nuget Version](https://img.shields.io/nuget/v/IcedMango.DifyAi)](https://www.nuget.org/packages/IcedMango.DifyAi)
+[![Nuget Download](https://img.shields.io/nuget/dt/IcedMango.DifyAi)](https://www.nuget.org/packages/IcedMango.DifyAi)
+[![GitHub License](https://img.shields.io/github/license/IcedMango/DifyAi-csharp-sdk)](https://github.com/IcedMango/DifyAi-csharp-sdk/blob/main/LICENSE)
+[![Action Status](https://img.shields.io/github/actions/workflow/status/IcedMango/DifyAi-csharp-sdk/publishNuGet.yml)](https://github.com/IcedMango/DifyAi-csharp-sdk/actions)
+[![Commit Status](https://img.shields.io/github/commit-activity/m/IcedMango/DifyAi-csharp-sdk?labelColor=%20%2332b583&color=%20%2312b76a)](https://github.com/IcedMango/DifyAi-csharp-sdk)
+[![Language](https://img.shields.io/github/languages/top/IcedMango/DifyAi-csharp-sdk)](https://github.com/IcedMango/DifyAi-csharp-sdk)
+[![.NET-6.0](https://img.shields.io/badge/.NET-6.0-blue)](https://github.com/IcedMango/DifyAi-csharp-sdk)
+[![.NET-7.0](https://img.shields.io/badge/.NET-7.0-blue)](https://github.com/IcedMango/DifyAi-csharp-sdk)
+[![.NET-8.0](https://img.shields.io/badge/.NET-8.0-blue)](https://github.com/IcedMango/DifyAi-csharp-sdk)
 
 # Introduction
 
