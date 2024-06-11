@@ -4,8 +4,8 @@
         <Nullable>disable</Nullable>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <PackageId>IcedMango.DifyAi</PackageId>
-        <PackageReadmeFile>README.md</PackageReadmeFile>
-        <Version>1.1.5</Version>
+        <PackageReadmeFile>README.Nuget.md</PackageReadmeFile>
+        <Version>1.1.6</Version>
         <Authors>IcedMango</Authors>
         <RepositoryUrl>https://github.com/IcedMango/DifyAi-csharp-sdk</RepositoryUrl>
         <PackageProjectUrl>https://github.com/IcedMango/DifyAi-csharp-sdk</PackageProjectUrl>
@@ -44,10 +44,9 @@
         <PackageReference Include="Newtonsoft.Json" Version="13.0.3"/>
     </ItemGroup>
     <ItemGroup>
-        <None Include="..\README.md" Pack="true" PackagePath="\"/>
-        <None Include="..\README.zh-CN.md" Pack="true" PackagePath="\"/>
-        <None Include="..\ApiDoc.md" PackagePath="\"/>
-        <None Include="..\ApiDoc.zh-CN.md" PackagePath="\"/>
+        <Resource Include="..\README.Nuget.md" Pack="true" PackagePath="\">
+          <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </Resource>
     </ItemGroup>
 
 </Project>
