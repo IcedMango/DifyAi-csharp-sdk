@@ -61,6 +61,8 @@ public class RequestExtension : IRequestExtension
             }
             catch (Exception e)
             {
+                _logger.LogError($"DifyApi Request Failed! Raw Response: {respContent}");
+
                 if (e is JsonReaderException)
                 {
                     return new DifyApiResult<T>()
