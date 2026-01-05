@@ -1,7 +1,31 @@
-﻿
+
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IcedMango.DifyAi", "IcedMango.DifyAi\IcedMango.DifyAi.csproj", "{3D3C397E-2CD2-4892-9CDB-7AAECC1D9D9D}"
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+
+# Solution Folders
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{E1B2C3D4-0001-0000-0000-000000000001}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{E1B2C3D4-0002-0000-0000-000000000002}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{E1B2C3D4-0003-0000-0000-000000000003}"
+EndProject
+
+# Source Projects
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IcedMango.DifyAi", "src\IcedMango.DifyAi\IcedMango.DifyAi.csproj", "{3D3C397E-2CD2-4892-9CDB-7AAECC1D9D9D}"
+EndProject
+
+# Test Projects
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IcedMango.DifyAi.Tests", "tests\IcedMango.DifyAi.Tests\IcedMango.DifyAi.Tests.csproj", "{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IcedMango.DifyAi.IntegrationTests", "tests\IcedMango.DifyAi.IntegrationTests\IcedMango.DifyAi.IntegrationTests.csproj", "{B2C3D4E5-F6A7-8901-BCDE-F12345678901}"
+EndProject
+
+# Sample Projects
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Example", "samples\Example\Example.csproj", "{8A5C09B5-046C-44F9-8FBD-F7FEA9DEE6CF}"
+EndProject
+
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +36,23 @@ Global
 		{3D3C397E-2CD2-4892-9CDB-7AAECC1D9D9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3D3C397E-2CD2-4892-9CDB-7AAECC1D9D9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3D3C397E-2CD2-4892-9CDB-7AAECC1D9D9D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B2C3D4E5-F6A7-8901-BCDE-F12345678901}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2C3D4E5-F6A7-8901-BCDE-F12345678901}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2C3D4E5-F6A7-8901-BCDE-F12345678901}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2C3D4E5-F6A7-8901-BCDE-F12345678901}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A5C09B5-046C-44F9-8FBD-F7FEA9DEE6CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A5C09B5-046C-44F9-8FBD-F7FEA9DEE6CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A5C09B5-046C-44F9-8FBD-F7FEA9DEE6CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A5C09B5-046C-44F9-8FBD-F7FEA9DEE6CF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3D3C397E-2CD2-4892-9CDB-7AAECC1D9D9D} = {E1B2C3D4-0001-0000-0000-000000000001}
+		{A1B2C3D4-E5F6-7890-ABCD-EF1234567890} = {E1B2C3D4-0002-0000-0000-000000000002}
+		{B2C3D4E5-F6A7-8901-BCDE-F12345678901} = {E1B2C3D4-0002-0000-0000-000000000002}
+		{8A5C09B5-046C-44F9-8FBD-F7FEA9DEE6CF} = {E1B2C3D4-0003-0000-0000-000000000003}
 	EndGlobalSection
 EndGlobal

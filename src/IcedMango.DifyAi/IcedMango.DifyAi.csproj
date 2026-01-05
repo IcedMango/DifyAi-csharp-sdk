@@ -1,0 +1,45 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>disable</Nullable>
+        <LangVersion>10</LangVersion>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <PackageId>IcedMango.DifyAi</PackageId>
+        <PackageReadmeFile>README.Nuget.md</PackageReadmeFile>
+        <Version>2.0.0-alpha.dify1.11.2</Version>
+        <Authors>IcedMango</Authors>
+        <RepositoryUrl>https://github.com/IcedMango/DifyAi-csharp-sdk</RepositoryUrl>
+        <PackageProjectUrl>https://github.com/IcedMango/DifyAi-csharp-sdk</PackageProjectUrl>
+        <PackageLicenseUrl>https://github.com/IcedMango/DifyAi-csharp-sdk/blob/dev/LICENSE</PackageLicenseUrl>
+        <PackageTags>dify;sdk;dify-sdk</PackageTags>
+        <Description>A simple C# SDK for Dify. Support chat api and Knowledge api.</Description>
+        <RepositoryType>Github</RepositoryType>
+        <Title>IcedMango.DifyAi</Title>
+        <AssemblyName>IcedMango.DifyAi</AssemblyName>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.Extensions.Configuration" Version="6.0.0"/>
+        <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="6.0.0"/>
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0"/>
+        <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="6.0.0"/>
+        <PackageReference Include="Microsoft.Extensions.Http" Version="6.0.0"/>
+        <PackageReference Include="Microsoft.Extensions.Options" Version="6.0.0"/>
+        <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="6.0.0"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Mapster" Version="7.4.0"/>
+        <PackageReference Include="Mapster.Core" Version="1.2.1"/>
+        <PackageReference Include="MimeMapping" Version="3.0.1"/>
+        <PackageReference Include="Newtonsoft.Json" Version="13.0.3"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <Resource Include="..\..\README.Nuget.md" Pack="true" PackagePath="\">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </Resource>
+    </ItemGroup>
+
+</Project>
