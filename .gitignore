@@ -398,3 +398,18 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+
+# Claude Code AI context file
+CLAUDE.md
+
+# Integration test configuration (contains API keys)
+IcedMango.DifyAi.IntegrationTests/appsettings.json
+IcedMango.DifyAi.IntegrationTests/appsettings.local.json
+!IcedMango.DifyAi.IntegrationTests/appsettings.template.json
+
+# Example project configuration (contains API keys)
+samples/Example/appsettings.local.json
+
+# Test results and coverage reports
+TestResults/
+coveragereport/

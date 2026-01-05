@@ -1,0 +1,38 @@
+{
+  "data": [
+    {
+      "id": "dataset-test-001",
+      "name": "Test Dataset",
+      "description": "A test dataset for unit testing",
+      "provider": "vendor",
+      "permission": "only_me",
+      "data_source_type": "upload_file",
+      "indexing_technique": "high_quality",
+      "app_count": 1,
+      "document_count": 5,
+      "word_count": 1000,
+      "created_by": "user-test-123",
+      "created_at": 1704067200,
+      "updated_at": 1704067200
+    },
+    {
+      "id": "dataset-test-002",
+      "name": "Another Dataset",
+      "description": "Another test dataset",
+      "provider": "vendor",
+      "permission": "all_team_members",
+      "data_source_type": "upload_file",
+      "indexing_technique": "economy",
+      "app_count": 0,
+      "document_count": 2,
+      "word_count": 500,
+      "created_by": "user-test-123",
+      "created_at": 1704067100,
+      "updated_at": 1704067100
+    }
+  ],
+  "has_more": false,
+  "limit": 20,
+  "total": 2,
+  "page": 1
+}

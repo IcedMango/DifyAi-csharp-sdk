@@ -1,0 +1,31 @@
+{
+  "data": [
+    {
+      "id": "doc-test-002",
+      "position": 1,
+      "data_source_type": "upload_file",
+      "data_source_info": {
+        "upload_file_id": "file-001"
+      },
+      "dataset_process_rule_id": "rule-001",
+      "name": "test_document.txt",
+      "created_from": "api",
+      "created_by": "user-test-123",
+      "created_at": 1704067200,
+      "tokens": 100,
+      "indexing_status": "completed",
+      "error": null,
+      "enabled": true,
+      "disabled_at": null,
+      "disabled_by": null,
+      "archived": false,
+      "display_status": "available",
+      "word_count": 50,
+      "hit_count": 10,
+      "doc_form": "text_model"
+    }
+  ],
+  "has_more": false,
+  "limit": 20,
+  "total": 1
+}

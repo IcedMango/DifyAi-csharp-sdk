@@ -1,0 +1,5 @@
+{
+  "code": "invalid_param",
+  "message": "Invalid parameter: query is required",
+  "status": 400
+}

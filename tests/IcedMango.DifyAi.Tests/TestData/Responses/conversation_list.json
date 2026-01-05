@@ -1,0 +1,24 @@
+{
+  "limit": 20,
+  "has_more": false,
+  "data": [
+    {
+      "id": "conv-test-456",
+      "name": "Test Conversation",
+      "inputs": {},
+      "status": "normal",
+      "introduction": "Welcome to the test conversation",
+      "created_at": 1704067200,
+      "updated_at": 1704067200
+    },
+    {
+      "id": "conv-test-789",
+      "name": "Another Conversation",
+      "inputs": {},
+      "status": "normal",
+      "introduction": "",
+      "created_at": 1704067100,
+      "updated_at": 1704067100
+    }
+  ]
+}

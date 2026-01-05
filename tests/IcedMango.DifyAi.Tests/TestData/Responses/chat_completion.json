@@ -1,0 +1,16 @@
+{
+  "event": "message",
+  "message_id": "msg-test-789",
+  "conversation_id": "conv-test-456",
+  "mode": "chat",
+  "answer": "Hello! How can I help you today?",
+  "metadata": {
+    "usage": {
+      "prompt_tokens": 10,
+      "completion_tokens": 20,
+      "total_tokens": 30
+    },
+    "retriever_resources": []
+  },
+  "created_at": 1704067200
+}
