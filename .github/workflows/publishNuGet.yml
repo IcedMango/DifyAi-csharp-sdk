@@ -28,7 +28,7 @@ jobs:
           NUGET_KEY: ${{secrets.NUGET_API_KEY}}
           
           # Full path to project file. (Example: src/MyNuGetProject/MyNuGetProject.csproj) (Default: Will scan all .csproj/.fsproj/.vbproj files and use first it finds that has GeneratePackageOnBuild set to true.)
-          PROJECT_FILE_PATH: IcedMango.DifyAi/IcedMango.DifyAi.csproj
+          PROJECT_FILE_PATH: src/IcedMango.DifyAi/IcedMango.DifyAi.csproj
           
           # URL to NuGet server. (Default: https://api.nuget.org)
           #NUGET_SOURCE: https://api.nuget.org
